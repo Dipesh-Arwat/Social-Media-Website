@@ -72,7 +72,7 @@ exports.updateUserProfile = async (req, res) => {
       
       if (req.file) {
         console.log('File uploaded:', req.file); // Log the file upload
-        user.profileImage = `http://localhost:5000/api/uploads/${req.file.filename}`; // Save image path to user profile
+        user.profileImage = `https://social-media-website-backend-0xnf.onrender.com/api/uploads/${req.file.filename}`; // Save image path to user profile
       }
 
       const updatedUser = await user.save();

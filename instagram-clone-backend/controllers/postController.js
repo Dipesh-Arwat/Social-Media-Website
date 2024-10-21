@@ -10,7 +10,7 @@ exports.createPost = async (req, res) => {
     // Create new post with image URL and user ID
     const post = new Post({
       user: req.user._id, // Set the user ID from the request
-      imageUrl: `http://localhost:5000/api/uploads/${req.file.filename}`, // Construct the image URL
+      imageUrl: `https://social-media-website-backend-0xnf.onrender.com/api/uploads/${req.file.filename}`, // Construct the image URL
       caption, // Set the caption
     });
 

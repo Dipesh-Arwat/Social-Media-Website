@@ -16,7 +16,7 @@ exports.addStory = async (req, res) => {
 
     const story = new Story({
       user: req.user._id,
-      mediaUrl: `http://localhost:5000/api/uploads/${req.file.filename}`,
+      mediaUrl: `https://social-media-website-backend-0xnf.onrender.com/api/uploads/${req.file.filename}`,
       type,
       expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000),
     });
