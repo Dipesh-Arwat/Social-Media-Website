@@ -1,0 +1,133 @@
+.add-story {
+    margin: 20px 0;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out; /* Fade-in animation */
+}
+
+.add-story h2 {
+    font-size: 2em;
+    color: #3f729b;
+    margin-bottom: 20px;
+    animation: slideIn 0.5s ease-in-out; /* Slide-in animation for the heading */
+}
+
+.error {
+    color: red;
+    margin: 10px 0;
+    animation: shake 0.5s; /* Shake animation for error message */
+}
+
+.story-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.file-input {
+    margin: 10px 0;
+    padding: 10px;
+    border: 2px dashed #3f729b; /* Dashed border for file input */
+    border-radius: 5px;
+    transition: border-color 0.3s; /* Transition effect */
+}
+
+.file-input:hover {
+    border-color: #2b4d68; /* Darker shade on hover */
+}
+
+.preview-container {
+    margin: 10px 0;
+    width: 100%; /* Ensure it takes full width */
+    max-width: 300px; /* Set a max width for the image */
+}
+
+.preview-image {
+    width: 100%; /* Make the image responsive */
+    border-radius: 5px; /* Add some rounding to the corners */
+}
+
+.upload-button {
+    padding: 10px 20px;
+    background-color: #3f729b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: transform 0.2s; /* Transition for button hover */
+}
+
+.upload-button:hover {
+    transform: scale(1.05); /* Slightly increase button size on hover */
+    background-color: #2b4d68; /* Darker shade on hover */
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+/* AddStory.css */
+.toast-container {
+    /* You can adjust the width as needed */
+    width: 90% !important;  /* Responsive width */
+    max-width: 400px; /* Limit max width */
+    margin: 0 auto; /* Center horizontally */
+}
+
+/* Adjustments for mobile devices */
+@media (max-width: 600px) {
+    .toast-container {
+        width: 80%;
+        margin-top: 60px;
+        /* margin: 60px auto;  */
+    }
+}
+
+/* Customizing the toast notification itself */
+.Toastify__toast {
+    font-size: 14px; /* Smaller font size for mobile */
+    padding: 10px; /* Adjust padding */
+}
+
+/* Adjusting toast title */
+.Toastify__toast-title {
+    font-weight: bold; /* Make title bold */
+}
+
+/* Adjusting toast body */
+.Toastify__toast-body {
+    text-align: center; /* Center text */
+}
+

@@ -1,0 +1,117 @@
+
+a, a:visited {
+    text-decoration: none;
+    color: blue;
+  }
+  a:active, .btn:active {
+    opacity:.5;
+  }
+  
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #1f1f1f;
+    
+  }
+  
+  .logo {
+    /* background: cover no-repeat; */
+    width:300px;
+    height:auto;
+  }
+  .auth-container h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #f5f5f5;
+    font-weight: bold;
+  }
+  
+  .auth-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    background-color: #333;
+    padding: 20px;
+    
+    /* border-radius: 10px; */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .auth-container input {
+    width: 90%;
+    padding: 12px;
+    margin-bottom: 15px;
+    /* border-radius: 5px; */
+    border: none;
+    background-color: #444;
+    color: #fff;
+    font-size: 16px;
+  }
+  
+  .auth-container input:focus {
+    outline: none;
+    border: 1px solid #1a73e8; /* Gives focus effect */
+  }
+  
+  .auth-container button {
+    width: 97%;
+    padding: 12px;
+    border: none;
+    border-radius: 0px;
+    background-color: #1a73e8; /* Blue primary color for the button */
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .auth-container button:hover {
+    background-color: #135ba0; /* Slightly darker on hover */
+  }
+  
+  .auth-container button:focus {
+    outline: none;
+  }
+  .redirect{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 0 20px;
+    background-color:#333;
+
+  }
+  .error-message{
+    color: red;
+  }
+  
+  @media (max-width: 600px) {
+    .auth-container {
+        padding: 0 15px; 
+    }
+
+    .auth-container form {
+        padding: 15px;
+        width: 90%; 
+    }
+
+    .auth-container img {
+        width: 300px; 
+    }
+
+    .auth-container h2 {
+        font-size: 24px;
+    }
+
+    .auth-container input,
+    .auth-container button {
+        font-size: 14px; 
+        padding: 10px;   
+    }
+}

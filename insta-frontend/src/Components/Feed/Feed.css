@@ -1,0 +1,204 @@
+/* Feed container styling */
+.feed-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #1f1f1f;
+  min-height: 100vh;
+}
+
+/* Individual post styling */
+.post {
+  background-color: #333;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+  width: 30%;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  /* transition: transform 0.3s; */
+}
+
+/* .post:hover {
+  transform: scale(1.02); 
+} */
+
+.post-image {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: contain;
+  max-height: 400px;
+  background-color: white;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-profile-image {
+  width: 40px; /* Set desired width */
+  height: 40px; /* Set desired height */
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: contain;
+  background-color: black;
+}
+
+.post-user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.username {
+  font-weight: bold;
+  color: #fff; /* Adjusted color for better visibility */
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #bbb; /* Light gray color for timestamp */
+}
+
+.post-info {
+  padding: 10px 0;
+}
+
+.post-info p {
+  margin: 10px 0;
+  color: darkorange;
+  font-size: 14px;
+}
+
+/* Post actions (like, comment, share) */
+.post-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.liked {
+  color: red;
+}
+
+.post-actions .fa-heart {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* .post-actions .fa-heart.liked {
+  color: red; 
+} */
+
+.post-actions span {
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+}
+
+.post-actions .fa-heart::after {
+  color: red; 
+}
+
+.comment-inupt{
+  display: flex;
+  justify-content: space-between;
+}
+.comment-inuptbox{
+  border: none;
+  outline: none;
+}
+.comment-button{
+  background: transparent;
+  font-family: sans-serif;
+  color: skyblue;
+  font-weight: bold;
+}
+.comment-button:hover{
+  background: transparent;
+  color: whitesmoke;
+}
+.com-icon:hover{
+  color: #bbb;
+  cursor: pointer;
+}
+/* Comment list styling */
+.comments-section ul {
+  list-style-type: none; /* Remove default bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.comments-section li.comment-item {
+  display: flex; /* Align profile image and comment content horizontally */
+  align-items: center; /* Vertically center-align content */
+  padding: 10px 0; /* Add spacing between each comment */
+  border-bottom: 1px solid #ccc; /* Add a bottom border for separation */
+}
+
+.comments-section li.comment-item:last-child {
+  border-bottom: none; /* Remove border for the last comment */
+}
+
+/* Profile image styling for comments */
+.comment-profile-image {
+  width: 40px; /* Adjust size for the profile image */
+  height: 40px; /* Make sure it's a perfect square */
+  border-radius: 50%; /* Make the image circular */
+  object-fit: contain; /* Ensure the image fits the container without distortion */
+  margin-right: 10px;
+  background-color: black; /* Add space between the image and the comment text */
+}
+
+/* Comment content styling */
+.comment-content p {
+  margin: 0; /* Remove default margin for the comment text */
+  font-size: 14px; /* Adjust the text size for comments */
+  color: white; /* Set the comment text color */
+}
+
+@media (max-width: 768px) {
+  .feed-container{
+    margin-bottom: 40px;
+  }
+  .post {
+    width: 90%;
+  }
+
+  .post-info p {
+    font-size: 13px;
+  }
+
+  .post-actions .fa-heart {
+    font-size: 18px;
+  }
+
+  .comment-inuptbox {
+    padding: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .post {
+    width: 100%;
+  }
+
+  .post-info p {
+    font-size: 12px;
+  }
+
+  .post-actions .fa-heart {
+    font-size: 16px;
+  }
+
+  .comment-inuptbox {
+    padding: 5px;
+  }
+
+  .comment-content p {
+    font-size: 12px;
+  }
+}

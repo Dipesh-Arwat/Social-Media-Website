@@ -1,0 +1,229 @@
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease; /* Smooth transitions */
+}
+
+.sidebar-logo {
+  margin-bottom: 30px;
+}
+
+.logo {
+  width: 230px;
+}
+
+.sidebar-nav {
+  width: 100%;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1;
+}
+
+.sidebar-nav li {
+  width: 100%;
+  margin: 15px 0;
+}
+
+.sidebar-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-nav a:hover {
+  background-color: #333;
+  border-radius: 5px;
+}
+
+.sidebar-nav a span {
+  margin-left: 20px;
+}
+
+.sidebar-nav a svg {
+  width: 25px;
+}
+
+.sidebar-nav a.active-link {
+  background-color: #333;
+  border-radius: 5px;
+}
+
+.sidebar-nav a.active-link span {
+  font-weight: bold;
+}
+
+.profile-link {
+  display: flex;
+  align-items: center;
+}
+
+.profile-image {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  object-fit: contain;
+  border: 1px #fff solid;
+}
+.top-right-container{
+  display: none;
+}
+.logout-btn{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logout-btn:hover{
+  background-color: lightcoral;
+}
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  
+  .sidebar {
+    width: 70px;
+  }
+
+  .sidebar-logo {
+    display: none;
+  }
+
+  .sidebar-nav a span {
+    display: none;
+  }
+
+  .sidebar-nav a svg {
+    font-size: 20px;
+  }
+
+  .profile-link {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 100vw;
+    height: 70px;
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+  }
+
+  .sidebar-logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 215px;
+    background-color: black;
+    padding: 9px;
+    z-index: 999;
+  }
+
+  /* Adjust the logo size for smaller screens */
+  .logo {
+    width: 100px;
+  }
+
+  
+
+  .sidebar-nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .sidebar-nav li {
+    margin: 0;
+    width: auto;
+  }
+
+  .sidebar-nav a {
+    padding: 5px;
+  }
+
+  .sidebar-nav a svg {
+    font-size: 24px;
+  }
+
+  /* Keep the logout button at the top right corner with black background */
+  .logout-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: black;
+    padding: 10px;
+    z-index: 999; /* Ensure it stays on top */
+  }
+
+  .logout-btn {
+    color: #fff;
+    background: none;
+    border: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .logout-btn span{
+    display: none;
+  }
+  .logout-btn svg {
+    margin-right: 5px;
+  }
+
+  .top-right-container {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    padding: 10px;
+    z-index: 999;
+  }
+
+  .logout-btn, .top-right-icon {
+    color: #fff;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .logout-btn svg, .top-right-icon svg {
+    margin-right: 5px;
+  }
+
+  .sidebar .logout-container {
+    display: none;
+  }
+  .hide-on-mobile {
+    display: none;
+  }
+  /* Remove logout button from the bottom sidebar */
+  /* .sidebar .logout-container {
+    display: none;
+  } */
+}

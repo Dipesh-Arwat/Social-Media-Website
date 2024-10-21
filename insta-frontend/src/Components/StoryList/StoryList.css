@@ -1,0 +1,74 @@
+.story-list {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding: 10px;
+    
+    scrollbar-width:thin; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+    width: 40%;
+  }
+  
+  .story-list::-webkit-scrollbar {
+    height: 8px; /* Set the height of the scrollbar */
+  }
+  
+  .story-list::-webkit-scrollbar-thumb {
+    background-color: pink; /* Scrollbar color */
+    border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+  }
+  
+  .story-list::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background color of the scrollbar track */
+  }
+
+  .circle-border{
+    border: 2px solid rgb(241, 4, 16);
+    border-radius: 50%;
+    padding: 2px;
+  }
+  
+  .story {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    
+    overflow: hidden;
+    /* border: 3px solid pink;  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+    /* transition: transform 0.3s ease; */
+   
+  }
+  /* .story:hover {
+    transform: scale(1.1); 
+} */
+  .story-conatin{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .story-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .story-username {
+    margin-top: 10px; /* Space between story and username */
+    color: white; /* Change color to fit design */
+    font-size: 10px;
+    text-align: center; /* Center align the username */
+  }
+  
+
+
+
+  @media (max-width: 768px) {
+    .story-list{
+      width: 100%;
+    }
+  }

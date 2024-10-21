@@ -1,0 +1,126 @@
+/* StoryViewModal.css */
+
+/* Modal Overlay */
+.story-view-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark translucent background */
+    z-index: 1000;
+    backdrop-filter: blur(5px); /* Blur background for a sleek effect */
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* Story content container */
+  .story-content {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  /* Image in the modal */
+  .story-modal-image {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .story-modal-image:hover {
+    transform: scale(1.05); /* Slight zoom on hover for effect */
+  }
+  
+  /* Video in the modal */
+  .story-modal-video {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Close button */
+  .close-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    
+    /* padding: 10px; */
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .close-button:hover {
+    background-color: rgba(255, 0, 0, 0.7); /* Red background on hover */
+  }
+
+  .story-progress-bar {
+    height: 5px;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    animation: progress 10s linear;
+  }
+  
+  @keyframes progress {
+    from { width: 100%; }
+    to { width: 0%; }
+  }
+  
+  
+  /* Background animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Animated background effect */
+  body {
+    background: linear-gradient(-45deg, #1d1e22, #23272b, #2c2f33, #40444b);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  

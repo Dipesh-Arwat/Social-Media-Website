@@ -1,0 +1,57 @@
+.follow-button {
+    background-color: #444;
+    color: white;
+    margin-top: 20px;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s;
+}
+
+.follow-button:hover {
+    background-color: wheat;
+    color: black;
+}
+
+.other-user-posts {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    gap: 15px;
+    width: 40%;
+}
+
+/* .other-post {
+    width: 100%;
+  max-width: 1200px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+} */
+
+.other-post img {
+    width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+}
+
+.btn-group-other {
+    display: flex;
+    width: 54%;
+    justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+    /* .profile-post{
+      width: 30%;
+    } */
+    .other-post img {
+      width: 120px;
+      height: 120px;
+    }
+}
