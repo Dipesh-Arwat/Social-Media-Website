@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from '../../axios';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png'
+import '../Login/Login.css'
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -49,7 +50,7 @@ const Register = () => {
       </form>
       <div className='redirect'>
 
-      <p class="text">Already have an account?<a href="https://social-media-website-ciuy.onrender.com/login"> Login</a></p>
+      <p class="text">Already have an account?<a href="/login"> Login</a></p>
       </div>
     </div>
   );
