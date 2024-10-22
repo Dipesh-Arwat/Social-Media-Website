@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import axios from '../../axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faComment, faShare } from '@fortawesome/free-solid-svg-icons';
 import './Feed.css';
 import StoryList from '../StoryList/StoryList';
-import StoryViewModal from '../StoryViewModal/StoryViewModal';
+
+// Lazy load StoryViewModal component
+const StoryViewModal = React.lazy(() => import('../StoryViewModal/StoryViewModal'));
 
 const Feed = () => {
   const [posts, setPosts] = useState([]);
@@ -24,7 +26,6 @@ const Feed = () => {
         likedByUser: post.likes.includes(userId),
       }));
       setPosts(postsWithLikeStatus);
-      // setPosts(res.data);
     };
     fetchPosts();
   }, [userId]);
@@ -69,7 +70,6 @@ const Feed = () => {
     }
   };
 
-
   const handleCommentSubmit = async (postId) => {
     if (!commentText.trim()) return;
     try {
@@ -84,7 +84,6 @@ const Feed = () => {
         }
       );
 
-
       setComments((prevComments) => ({
         ...prevComments,
         [postId]: [...(prevComments[postId] || []), response.data]
@@ -95,8 +94,6 @@ const Feed = () => {
       console.error('Error submitting comment:', error);
     }
   };
-
-  
 
   const formatTimeAgo = (timestamp) => {
     const date = new Date(timestamp);
@@ -110,7 +107,6 @@ const Feed = () => {
   };
 
   useEffect(() => {
-    
     const fetchStories = async () => {
       try {
         const response = await axios.get('/stories', {
@@ -131,21 +127,20 @@ const Feed = () => {
     setViewedStory(story);
   };
 
-
-  
   const closeStoryView = () => {
     setViewedStory(null);
   };
 
   return (
-
     <div className="feed-container">
-     <StoryList stories={stories} onStoryClick={handleStoryClick} />
-     
-      {viewedStory && (
-        <StoryViewModal story={viewedStory} onClose={closeStoryView} />
-      )}
+      <StoryList stories={stories} onStoryClick={handleStoryClick} />
 
+      {/* Lazy load StoryViewModal */}
+      {viewedStory && (
+        <Suspense fallback={<div>Loading story...</div>}>
+          <StoryViewModal story={viewedStory} onClose={closeStoryView} />
+        </Suspense>
+      )}
 
       {posts.map((post) => (
         <div key={post._id} className="post">
@@ -155,6 +150,7 @@ const Feed = () => {
                 src={post.user.profileImage}
                 alt={`${post.user.username}'s profile`}
                 className="user-profile-image"
+                loading="lazy"  // Lazy load profile image
               />
             </Link>
             <div className="post-user-info">
@@ -162,31 +158,32 @@ const Feed = () => {
               <p className="timestamp">{formatTimeAgo(post.createdAt)}</p>
             </div>
           </div>
-          <img src={post.imageUrl} alt="post" className="post-image" />
+          <img
+            src={post.imageUrl}
+            alt="post"
+            className="post-image"
+            loading="lazy"  // Lazy load post image
+          />
           <div className="post-info">
             <p>{post.caption}</p>
             <div className="post-actions">
-            <FontAwesomeIcon
+              <FontAwesomeIcon
                 icon={faHeart}
                 style={{
-                  color: post.likedByUser ? 'red' : 'white', 
-                  cursor: 'pointer' 
+                  color: post.likedByUser ? 'red' : 'white',
+                  cursor: 'pointer'
                 }}
                 onClick={() => toggleLike(post._id)}
               />
               <span>{post.likes.length} Likes</span>
-
-
               <FontAwesomeIcon
                 className='com-icon'
                 icon={faComment}
                 onClick={() => fetchComments(post._id)}
               />
-
               <FontAwesomeIcon icon={faShare} />
             </div>
           </div>
-
 
           {activePostId === post._id && (
             <div className="comments-section">
@@ -194,11 +191,11 @@ const Feed = () => {
               <ul>
                 {(comments[post._id] || []).map((comment) => (
                   <li key={comment._id} className="comment-item">
-
                     <img
                       src={comment.user.profileImage}
                       alt={`${comment.user.username}'s profile`}
                       className="comment-profile-image"
+                      loading="lazy"  // Lazy load comment profile image
                     />
                     <div className="comment-content">
                       <p>{comment.user.username} : {comment.text}</p>
@@ -207,17 +204,16 @@ const Feed = () => {
                 ))}
               </ul>
 
-
               <form onSubmit={(e) => {
                 e.preventDefault();
                 handleCommentSubmit(post._id);
-              }} className='comment-inupt'>
+              }} className='comment-input'>
                 <input
                   type="text"
                   value={commentText}
                   onChange={(e) => setCommentText(e.target.value)}
                   placeholder="Add a comment"
-                  className='comment-inuptbox'
+                  className='comment-inputbox'
                 />
                 <button type="submit" className='comment-button'>Post</button>
               </form>

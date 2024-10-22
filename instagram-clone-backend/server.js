@@ -1,4 +1,5 @@
 const express = require('express');
+
 const cors = require('cors');
 const path = require('path');
 const dotenv = require('dotenv');
@@ -20,6 +21,11 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors());
+app.use(express.static('public', {
+    maxAge: '1d', 
+  }));
+
+  app.use('/static', express.static(path.join(__dirname, 'public')));  
 
 // Routes
 app.use('/api', authRoutes);

@@ -15,65 +15,44 @@ button {
   cursor: pointer;
 }
 
-/* Loading animation container */
+
+
+
+
 .loading-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full screen height */
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* Attractive gradient background */
+  height: 100vh;
+  background-color: #444; /* Background for loading screen */
+}
+
+.loading-spinner {
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-top: 6px solid whitesmoke; /* Spinner color */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  margin-top: 10px;
+  font-size: 16px;
   color: white;
   font-family: 'Arial', sans-serif;
-  font-size: 1.2rem;
-  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: text-blink 1.5s ease-in-out infinite;
 }
 
-/* Spinner styles */
-.loading-spinner {
-  border: 6px solid rgba(255, 255, 255, 0.3); /* Light border */
-  border-top: 6px solid #ffffff; /* White border */
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite; /* Infinite spinning animation */
-  margin-bottom: 20px; /* Space between spinner and text */
+@keyframes text-blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
 }
-
-/* Spinner animation */
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Optional fade-in animation for smooth loading */
-.loading-container {
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-
-/* .app {
-  display: flex;
-} */
-
-/* .content {
-  margin-left: 250px;
-  padding: 20px;
-  width: calc(100% - 250px);
-  
-} */
-
-
