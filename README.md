@@ -4,8 +4,6 @@ Here's a **README** for your Instagram clone project on GitHub:
 
 # Instagram Clone - Social Media Website
 
-![Social Media Clone](https://yourimageurl.com/banner-image)
-
 ## Description
 
 This project is a fully functional Instagram clone built using the **MERN stack** (MongoDB, Express, React, Node.js). The app allows users to create an account, post pictures, like and comment on posts, follow/unfollow other users, and upload stories with a 24-hour expiration period, among other features.
