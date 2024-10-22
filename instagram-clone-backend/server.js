@@ -1,5 +1,5 @@
 const express = require('express');
-
+const compression = require('compression');
 const cors = require('cors');
 const path = require('path');
 const dotenv = require('dotenv');
@@ -24,7 +24,7 @@ app.use(cors());
 app.use(express.static('public', {
     maxAge: '1d', 
   }));
-
+  app.use(compression());
   app.use('/static', express.static(path.join(__dirname, 'public')));  
 
 // Routes

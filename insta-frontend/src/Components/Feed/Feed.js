@@ -150,7 +150,7 @@ const Feed = () => {
                 src={post.user.profileImage}
                 alt={`${post.user.username}'s profile`}
                 className="user-profile-image"
-                loading="lazy"  // Lazy load profile image
+                loading="lazy"  
               />
             </Link>
             <div className="post-user-info">
