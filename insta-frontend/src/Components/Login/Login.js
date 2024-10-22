@@ -66,7 +66,7 @@ const Login = ({ setIsAuthenticated }) => {
                 <button type="submit">Login</button>
             </form>
             <div className='redirect'>
-                <p className="text">Don't have an account?<a href="/register"> Sign up</a></p>
+                <p className="text">Don't have an account?<a href="https://social-media-website-ciuy.onrender.com/register"> Sign up</a></p>
             </div>
         </div>
     );

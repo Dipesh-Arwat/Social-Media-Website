@@ -49,7 +49,7 @@ const Register = () => {
       </form>
       <div className='redirect'>
 
-      <p class="text">Already have an account?<a href="/login"> Login</a></p>
+      <p class="text">Already have an account?<a href="https://social-media-website-ciuy.onrender.com/login"> Login</a></p>
       </div>
     </div>
   );
