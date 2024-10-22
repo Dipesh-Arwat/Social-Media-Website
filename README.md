@@ -1,6 +1,3 @@
-Here's a **README** for your Instagram clone project on GitHub:
-
----
 
 # Instagram Clone - Social Media Website
 
