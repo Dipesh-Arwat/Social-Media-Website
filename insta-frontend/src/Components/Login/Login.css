@@ -3,7 +3,7 @@
     text-decoration: none;
     color: blue;
   }
-  a:active, .btn:active {
+  .text a:active, .btn:active {
     opacity:.5;
   }
   
