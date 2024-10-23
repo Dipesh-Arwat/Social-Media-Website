@@ -15,7 +15,7 @@ const Profile = ({ currentUser }) => {
   const [showFollowing, setShowFollowing] = useState(false);
   const [followers, setFollowers] = useState([]);
   const [following, setFollowing] = useState([]);
-  const [stories, setStories] = useState([]);
+  // const [stories, setStories] = useState([]);
   // const [hasStories, setHasStories] = useState(false);
   const [showAddStoryModal, setShowAddStoryModal] = useState(false); // State for Add Story Modal
 
@@ -27,9 +27,9 @@ const Profile = ({ currentUser }) => {
           setUser(res.data);
           setPosts(res.data.posts || []);
 
-          const userStories = res.data.stories || [];
-          const filteredStories = userStories.filter(story => story.userId === currentUser._id);
-          setStories(filteredStories);
+          // const userStories = res.data.stories || [];
+          // const filteredStories = userStories.filter(story => story.userId === currentUser._id);
+          // setStories(filteredStories);
         }
       } catch (error) {
         console.error('Error fetching user data:', error);
