@@ -3,6 +3,7 @@ self.addEventListener('install', (event) => {
       caches.open('static-cache-v1').then((cache) => {
         return cache.addAll([
           '/',
+          '/insta-logo.png',
           '/styles/main.css',
           '/scripts/main.js',
           '/images/logo.png',
