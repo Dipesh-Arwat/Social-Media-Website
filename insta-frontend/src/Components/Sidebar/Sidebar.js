@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faSearch, faPlusSquare, faSignOutAlt, faUserCircle, faBell } from '@fortawesome/free-solid-svg-icons';
@@ -20,11 +20,11 @@ const Sidebar = ({ setIsAuthenticated }) => {
   const userProfileImage = localStorage.getItem('profileImage');
 
   return (
-    <>
+    <Suspense fallback={<div>Loading Sidebar...</div>}>
       {/* Sidebar section */}
       <div className="sidebar">
         <div className="sidebar-logo .hide-on-mobile">
-          <img className="logo" src={logo} alt="Instagram" />
+          <img className="logo" src={logo} alt="Instagram" loading="lazy" />
         </div>
         <nav className="sidebar-nav">
           <ul>
@@ -56,25 +56,24 @@ const Sidebar = ({ setIsAuthenticated }) => {
             <li>
               <NavLink to="/profile" className={({ isActive }) => (isActive ? 'active-link profile-link' : 'profile-link')}>
                 {userProfileImage && userProfileImage !== '' ? (
-                  <img src={userProfileImage} alt="Profile" className="profile-image" />
+                  <img src={userProfileImage} alt="Profile" className="profile-image" loading="lazy" />
                 ) : (
                   <FontAwesomeIcon icon={faUserCircle} className="fallback-profile-icon" />
                 )}
                 <span>Profile</span>
               </NavLink>
             </li>
-            
           </ul>
           <button onClick={handleLogout} className="logout-btn hide-on-mobile">
-              <FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span>
-            </button>
+            <FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span>
+          </button>
         </nav>
       </div>
 
       {/* Top-right section for Messages, Notifications, and Logout */}
       <div className="top-right-container">
         <div className="sidebar-logo">
-          <img className="logo" src={logo} alt="Instagram" />
+          <img className="logo" src={logo} alt="Instagram" loading="lazy" />
         </div>
         <button className="top-right-icon">
           <FontAwesomeIcon icon={faFacebookMessenger} /> {/* Messages */}
@@ -86,7 +85,7 @@ const Sidebar = ({ setIsAuthenticated }) => {
           <FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span>
         </button>
       </div>
-    </>
+    </Suspense>
   );
 };
 

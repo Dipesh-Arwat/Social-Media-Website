@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import './App.css';
+import './App.css'; // Ensure the spinner styles are in this file
 import Sidebar from './Components/Sidebar/Sidebar';
 import axios from './axios';
 
@@ -25,12 +25,11 @@ function App() {
     if (token) {
       setIsAuthenticated(true);
       
-      // Fetch the current user's profile using the /currentUser route
       const fetchCurrentUser = async () => {
         try {
           const res = await axios.get('/currentUser', {
             headers: {
-              Authorization: `Bearer ${token}`, // Send the token in the Authorization header
+              Authorization: `Bearer ${token}`,
             },
           });
 
@@ -41,14 +40,14 @@ function App() {
           localStorage.removeItem('token');
           setIsAuthenticated(false);
         } finally {
-          setLoading(false);  // Update loading state
+          setLoading(false);
         }
       };
 
       fetchCurrentUser();
     } else {
       setIsAuthenticated(false);
-      setLoading(false);  // Update loading state
+      setLoading(false);
     }
   }, []);
 
@@ -66,7 +65,12 @@ function App() {
       <div className="app">
         {isAuthenticated && <Sidebar setIsAuthenticated={setIsAuthenticated} />}
         <div className="content">
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={
+            <div className="loading-container">
+              <div className="loading-spinner"></div>
+              <p>Loading, please wait...</p>
+            </div>
+          }>
             <Routes>
               <Route path="/" element={<Navigate to="/login" />} />
               <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
