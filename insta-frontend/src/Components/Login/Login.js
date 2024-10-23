@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState } from 'react';
 import axios from '../../axios';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
@@ -46,10 +46,9 @@ const Login = ({ setIsAuthenticated }) => {
 
     return (
         <div className="auth-container ">
-            {/* Use Suspense to lazy load the logo */}
-            <Suspense fallback={<div>Loading...</div>}>
+         
                 <img className="logo" src={logo} alt="Instagram" loading="lazy" />
-            </Suspense>
+   
 
             <h2>Login</h2>
             <form onSubmit={handleLogin}>
