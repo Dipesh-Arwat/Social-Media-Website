@@ -27,7 +27,7 @@ const UploadPost = () => {
       // Get the JWT token from localStorage
       const token = localStorage.getItem('token'); // Assuming the token is stored in localStorage
 
-      await axios.post('https://social-media-website-backend-0xnf.onrender.com/api/post', formData, {
+      await axios.post('/post', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${token}`,
