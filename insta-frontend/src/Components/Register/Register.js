@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from '../../axios';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png'
-import '../Login/Login.css'
+import './Register.css'
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -21,7 +21,7 @@ const Register = () => {
   };
 
   return (
-    <div className="auth-container">
+    <div className="register-container">
         <img class="logo" src={logo} alt="Instagram"></img>
       <h2>Register</h2>
       <form onSubmit={handleRegister}>

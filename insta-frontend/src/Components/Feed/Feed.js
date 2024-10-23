@@ -158,7 +158,7 @@ const Feed = () => {
               <p className="timestamp">{formatTimeAgo(post.createdAt)}</p>
             </div>
           </div>
-          <img src={post.imageUrl} alt="post" className="post-image" loading="lazy" />  // Lazy loading post image
+          <img src={post.imageUrl} alt="post" className="post-image" loading="lazy" /> 
           <div className="post-info">
             <p>{post.caption}</p>
             <div className="post-actions">

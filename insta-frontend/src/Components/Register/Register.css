@@ -7,7 +7,7 @@
     opacity:.5;
   }
   
-.auth-container {
+.register-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,14 +22,14 @@
     width:300px;
     height:auto;
   }
-  .auth-container h2 {
+  .register-container h2 {
     font-size: 28px;
     margin-bottom: 20px;
     color: #f5f5f5;
     font-weight: bold;
   }
   
-  .auth-container form {
+  .register-container form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,7 +42,7 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }
   
-  .login-input {
+  .register-container input {
     width: 90%;
     padding: 12px;
     margin-bottom: 15px;
@@ -53,12 +53,12 @@
     font-size: 16px;
   }
   
-  .login-input:focus {
+  .register-container input:focus {
     outline: none;
     border: 1px solid #1a73e8; /* Gives focus effect */
   }
   
-  .auth-container button {
+  .register-container button {
     width: 97%;
     padding: 12px;
     border: none;
@@ -70,11 +70,11 @@
     transition: background-color 0.3s;
   }
   
-  .auth-container button:hover {
+  .register-container button:hover {
     background-color: #135ba0; /* Slightly darker on hover */
   }
   
-  .auth-container button:focus {
+  .register-container button:focus {
     outline: none;
   }
   .redirect{
@@ -90,60 +90,29 @@
   .error-message{
     color: red;
   }
-  .password-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    width: 96%;
-    margin-bottom: 15px;
-    border: none;
-  }
-  .password-container:focus{
-    outline: none;
-    border: 1px solid #1a73e8;
-  }
   
-  .pass-input {
-    width: 90%;
-    padding: 12px;
-    border: none;
-    background-color: #444;
-    color: #fff;
-    font-size: 16px;
-    width: 100%;
-    padding-right: 40px;
-    /* width: 100%; */
-  }
-  
-  .password-toggle {
-    position: absolute;
-    right: 10px;
-    cursor: pointer;
-    color: #555;
-  }
   
   
   @media (max-width: 600px) {
-    .auth-container {
+    .register-container {
         padding: 0 15px; 
     }
 
-    .auth-container form {
+    .register-container form {
         padding: 15px;
         width: 90%; 
     }
 
-    .auth-container img {
+    .register-container img {
         width: 300px; 
     }
 
-    .auth-container h2 {
+    .register-container h2 {
         font-size: 24px;
     }
 
-    .auth-container input,
-    .auth-container button {
+    .register-container input,
+    .register-container button {
         font-size: 14px; 
         padding: 10px;   
     }
