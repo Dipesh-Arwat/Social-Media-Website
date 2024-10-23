@@ -110,12 +110,12 @@ const Profile = ({ currentUser }) => {
                 <h2>{user.username}</h2>
                 <p className="bio">{user.bio}</p>
                 <div className="stats">
-                  <span>{posts.length} posts</span>
+                  <span>{posts?.length || 0} posts</span>
                   <span onClick={fetchFollowers} className="clickable">
-                    {user.followers.length || 0} followers
+                    {user?.followers?.length || 0} followers
                   </span>
                   <span onClick={fetchFollowing} className="clickable">
-                    {user.following.length || 0} following
+                    {user?.following?.length || 0} following
                   </span>
                 </div>
 
