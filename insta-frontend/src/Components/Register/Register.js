@@ -50,7 +50,7 @@ const Register = () => {
       </form>
       <div className='redirect'>
 
-      <p class="text">Already have an account?<a href="/login"> Login</a></p>
+      <p className="text">Already have an account?<a href="/login"> Login</a></p>
       </div>
     </div>
   );
