@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import axios from '../../axios';
-import axios from 'axios';
+import axios from '../../axios';
 import './Search.css';
 
 const Search = () => {
@@ -22,7 +21,7 @@ const Search = () => {
         if (query.trim() === '') return;
 
         try {
-            const res = await axios.get(`https://social-media-website-backend-0xnf.onrender.com/api/search?username=${query}`);
+            const res = await axios.get(`/search?username=${query}`);
             if (res.data.length === 0) {
                 setNoResults(true);
                 setResults([]);

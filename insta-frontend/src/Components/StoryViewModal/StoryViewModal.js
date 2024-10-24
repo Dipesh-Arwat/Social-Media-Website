@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'; 
-// import axios from '../../axios';
-import axios from 'axios';
+import axios from '../../axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark} from '@fortawesome/free-solid-svg-icons';
 import './StoryViewModal.css';
@@ -9,7 +8,7 @@ const StoryViewModal = ({ story, onClose }) => {
   useEffect(() => {
     // Mark the story as viewed
     const markAsViewed = async () => {
-      await axios.post(`https://social-media-website-backend-0xnf.onrender.com/api/stories/${story._id}/view`, {}, {
+      await axios.post(`/stories/${story._id}/view`, {}, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },

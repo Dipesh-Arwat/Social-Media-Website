@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
-// import axios from '../../axios';
-import axios from 'axios';
+import axios from '../../axios';
 import './UserProfile.css';
 import '../Profile/Profile.css';
 
@@ -18,7 +17,7 @@ const UserProfile = () => {
     useEffect(() => {
         const fetchUserProfile = async () => {
             try {
-                const response = await axios.get(`https://social-media-website-backend-0xnf.onrender.com/api/user/${userId}`);
+                const response = await axios.get(`/user/${userId}`);
                 setUser(response.data);
                 setLoading(false);
                 setIsFollowing(response.data.followers.includes(currentUserId));
@@ -36,7 +35,7 @@ const UserProfile = () => {
     const handleFollow = async () => {
         try {
             const token = localStorage.getItem('token');
-            await axios.post('https://social-media-website-backend-0xnf.onrender.com/api/user/follow', { userId }, {
+            await axios.post('/user/follow', { userId }, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

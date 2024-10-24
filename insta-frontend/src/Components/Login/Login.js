@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-// import axios from '../../axios';
-import axios from 'axios';
+import axios from '../../axios';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -26,7 +25,7 @@ const Login = ({ setIsAuthenticated }) => {
         }
         
         try {
-            const response = await axios.post('https://social-media-website-backend-0xnf.onrender.com/api/login', { email, password });
+            const response = await axios.post('/login', { email, password });
             const token = response.data.token;
             const userProfileImage = response.data.profileImage;
 

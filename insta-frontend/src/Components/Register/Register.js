@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-// import axios from '../../axios';
-import axios from 'axios';
+import axios from '../../axios';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png'
 import './Register.css'
@@ -14,7 +13,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://social-media-website-backend-0xnf.onrender.com/api/register', { username, email, password });
+      await axios.post('/register', { username, email, password });
       navigate('/login');
     } catch (error) {
       console.error(error);

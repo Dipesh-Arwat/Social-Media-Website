@@ -2,8 +2,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css'; // Ensure the spinner styles are in this file
 import Sidebar from './Components/Sidebar/Sidebar';
-// import axios from './axios';
-import axios from 'axios';
+import axios from './axios';
 
 // Lazy load components
 const Login = React.lazy(() => import('./Components/Login/Login'));
@@ -28,7 +27,7 @@ function App() {
       
       const fetchCurrentUser = async () => {
         try {
-          const res = await axios.get('https://social-media-website-backend-0xnf.onrender.com/api/currentUser', {
+          const res = await axios.get('/currentUser', {
             headers: {
               Authorization: `Bearer ${token}`,
             },
