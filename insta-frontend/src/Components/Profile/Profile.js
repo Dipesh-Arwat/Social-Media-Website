@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from '../../axios';
+// import axios from '../../axios';
+import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import './Profile.css';
@@ -23,7 +24,7 @@ const Profile = ({ currentUser }) => {
     const fetchUserData = async () => {
       try {
         if (currentUser && currentUser._id) {
-          const res = await axios.get(`/user/${currentUser._id}`);
+          const res = await axios.get(`https://social-media-website-backend-0xnf.onrender.com/api/user/${currentUser._id}`);
           setUser(res.data);
           setPosts(res.data.posts || []);
 
@@ -40,7 +41,7 @@ const Profile = ({ currentUser }) => {
 
   const fetchFollowers = async () => {
     try {
-      const res = await axios.get(`/user/${currentUser._id}/followers`);
+      const res = await axios.get(`https://social-media-website-backend-0xnf.onrender.com/api/user/${currentUser._id}/followers`);
       setFollowers(res.data || []);
       setShowFollowers(true); // Show the modal when the data is ready
     } catch (error) {
@@ -50,7 +51,7 @@ const Profile = ({ currentUser }) => {
 
   const fetchFollowing = async () => {
     try {
-      const res = await axios.get(`/user/${currentUser._id}/following`);
+      const res = await axios.get(`https://social-media-website-backend-0xnf.onrender.com/api/user/${currentUser._id}/following`);
       setFollowing(res.data || []);
       setShowFollowing(true); // Show the modal when the data is ready
     } catch (error) {
@@ -110,12 +111,12 @@ const Profile = ({ currentUser }) => {
                 <h2>{user.username}</h2>
                 <p className="bio">{user.bio}</p>
                 <div className="stats">
-                  <span>{posts.length || 0} posts</span>
+                  <span>{posts?.length || 0} posts</span>
                   <span onClick={fetchFollowers} className="clickable">
-                    {user.followers?.length || 0} followers
+                    {user?.followers?.length || 0} followers
                   </span>
                   <span onClick={fetchFollowing} className="clickable">
-                    {user.following?.length || 0} following
+                    {user?.following?.length || 0} following
                   </span>
                 </div>
 
