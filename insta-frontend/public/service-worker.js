@@ -4,9 +4,6 @@ self.addEventListener('install', (event) => {
         return cache.addAll([
           '/',
           '/insta-logo.png',
-          '/styles/main.css',
-          '/scripts/main.js',
-          '/images/logo.png',
         ]);
       })
     );
