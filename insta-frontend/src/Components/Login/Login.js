@@ -38,6 +38,7 @@ const Login = ({ setIsAuthenticated }) => {
 
             // Redirect to the feed page
             navigate('/feed');
+            window.location.reload();
         } catch (error) {
             console.error('Login failed:', error);
             setErrorMessage('Incorrect email or password. Please try again.');

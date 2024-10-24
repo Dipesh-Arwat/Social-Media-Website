@@ -229,3 +229,11 @@
     display: none;
   } */
 }
+
+
+@media (max-width: 370px){
+  .sidebar-logo {
+    width: 160px;
+  }
+
+}

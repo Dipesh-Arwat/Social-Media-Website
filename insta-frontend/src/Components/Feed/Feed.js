@@ -2,7 +2,7 @@ import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import axios from '../../axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faComment, faShare } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faComment, faShare, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import './Feed.css';
 
 // Lazy-load components
@@ -158,7 +158,7 @@ const Feed = () => {
               <p className="timestamp">{formatTimeAgo(post.createdAt)}</p>
             </div>
           </div>
-          <img src={post.imageUrl} alt="post" className="post-image" loading="lazy" /> 
+          <img src={post.imageUrl} alt="post" className="post-image" loading="lazy" />
           <div className="post-info">
             <p>{post.caption}</p>
             <div className="post-actions">
@@ -186,12 +186,12 @@ const Feed = () => {
               <ul>
                 {(comments[post._id] || []).map((comment) => (
                   <li key={comment._id} className="comment-item">
-                    <img
-                      src={comment.user.profileImage}
-                      alt={`${comment.user.username}'s profile`}
-                      className="comment-profile-image"
-                      loading="lazy"  // Lazy loading comment profile image
-                    />
+                    {comment.user.profileImage ? (
+                      <img className="comment-profile-image" src={comment.user.profileImage} alt="profile" loading="lazy" />
+                    ) : (
+                      <FontAwesomeIcon icon={faUserCircle} className="default-profile-icon" size="2x" />
+                    )}
+
                     <div className="comment-content">
                       <p>{comment.user.username} : {comment.text}</p>
                     </div>
