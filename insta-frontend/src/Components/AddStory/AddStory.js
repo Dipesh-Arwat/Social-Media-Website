@@ -1,7 +1,6 @@
 import React, { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
-// import axios from '../../axios';
-import axios from 'axios';
+import axios from '../../axios';
 import { ToastContainer, toast } from 'react-toastify'; // Import Toastify components
 import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
 import './AddStory.css';
@@ -34,7 +33,7 @@ const AddStory = () => {
         formData.append('type', 'image');
 
         try {
-            await axios.post('https://social-media-website-backend-0xnf.onrender.com/api/stories/add', formData, {
+            await axios.post('/stories/add', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${localStorage.getItem('token')}`,

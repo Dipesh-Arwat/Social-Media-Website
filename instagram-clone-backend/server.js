@@ -34,6 +34,9 @@ app.use('/api', postRoutes,);
 app.use('/api', storyRoutes,);
 app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
 
+app.get("/",(req,res)=>{
+  res.send("API Working")
+})
 
 // Listen on port
 const PORT = process.env.PORT || 5000;
