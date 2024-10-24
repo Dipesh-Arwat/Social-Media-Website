@@ -1,7 +1,8 @@
 import React, { useState } from 'react'; 
 import { ToastContainer, toast } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css'; 
-import axios from '../../axios';
+// import axios from '../../axios';
+import axios from 'axios';
 import './UploadPost.css';
 
 const UploadPost = () => {
@@ -27,7 +28,7 @@ const UploadPost = () => {
       // Get the JWT token from localStorage
       const token = localStorage.getItem('token'); // Assuming the token is stored in localStorage
 
-      await axios.post('/post', formData, {
+      await axios.post('https://social-media-website-backend-0xnf.onrender.com/api/post', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${token}`,

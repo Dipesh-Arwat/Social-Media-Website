@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import axios from '../../axios';
+// import axios from '../../axios';
+import axios from 'axios';
 import './EditProfile.css';
 import Cropper from 'react-easy-crop';
 import { getCroppedImg } from './cropImage';
@@ -58,7 +59,7 @@ const EditProfile = ({ user }) => {
 
     const token = localStorage.getItem('token');
     try {
-      await axios.put('/user/edit', formData, {
+      await axios.put('https://social-media-website-backend-0xnf.onrender.com/api/user/edit', formData, {
         headers: { 
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`
