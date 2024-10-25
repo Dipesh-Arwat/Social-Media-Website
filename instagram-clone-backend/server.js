@@ -34,12 +34,8 @@ app.use('/api', postRoutes,);
 app.use('/api', storyRoutes,);
 app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Serve static files from the React frontend app
-app.use(express.static(path.join(__dirname, 'client/build')));
-
-// Fallback route: Send all other requests to React frontend
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+app.get('/api', (req, res) => {
+  res.json({ message: 'API working!' });
 });
 
 // Listen on port
