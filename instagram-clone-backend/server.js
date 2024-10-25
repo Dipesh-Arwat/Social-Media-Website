@@ -20,7 +20,10 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors({ origin: 'https://social-media-website-backend-0xnf.onrender.com' }));
+app.use(cors({ 
+  origin: 'https://social-media-website-backend-0xnf.onrender.com',
+  credentials: true 
+}));
 app.use(express.static('public', {
     maxAge: '1d', 
   }));
