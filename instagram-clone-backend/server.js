@@ -35,7 +35,7 @@ app.use('/api', storyRoutes,);
 app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Serve static files from the React frontend app
-const path = require('path');
+
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Fallback route: Send all other requests to React frontend
