@@ -20,7 +20,7 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: 'https://social-media-website-backend-0xnf.onrender.com' }));
 app.use(express.static('public', {
     maxAge: '1d', 
   }));
@@ -36,11 +36,11 @@ app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Serve static files from the React frontend app
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'insta-frontend/build')));
 
 // Fallback route: Send all other requests to React frontend
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'insta-frontend/build', 'index.html'));
 });
 
 
