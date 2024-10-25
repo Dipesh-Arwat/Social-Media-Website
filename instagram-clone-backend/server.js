@@ -20,15 +20,25 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors({ 
+app.use(cors({
   origin: 'https://social-media-website-backend-0xnf.onrender.com',
-  credentials: true 
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+app.options('*', cors({
+  origin: 'https://social-media-website-backend-0xnf.onrender.com',
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
+
 app.use(express.static('public', {
-    maxAge: '1d', 
-  }));
-  app.use(compression());
-  app.use('/static', express.static(path.join(__dirname, 'public')));  
+  maxAge: '1d',
+}));
+app.use(compression());
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.use('/api', authRoutes);
