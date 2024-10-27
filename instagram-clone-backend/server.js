@@ -27,18 +27,18 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-app.options('*', cors({
-  origin: 'https://social-media-website-ciuy.onrender.com',
-  credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+// app.options('*', cors({
+//   origin: 'https://social-media-website-ciuy.onrender.com',
+//   credentials: true,
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+// }));
 
 
-app.use(express.static('public', {
-  maxAge: '1d',
-}));
+// app.use(express.static('public', {
+//   maxAge: '1d',
+// }));
 app.use(compression());
-app.use('/static', express.static(path.join(__dirname, 'public')));
+// app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.use('/api', authRoutes);
@@ -49,12 +49,12 @@ app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Serve static files from the React frontend app
 
-app.use(express.static(path.join(__dirname, 'insta-frontend/build')));
+// app.use(express.static(path.join(__dirname, 'insta-frontend/build')));
 
-// Fallback route: Send all other requests to React frontend
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'insta-frontend/build', 'index.html'));
-});
+// // Fallback route: Send all other requests to React frontend
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'insta-frontend/build', 'index.html'));
+// });
 
 
 app.get('/api', (req, res) => {
