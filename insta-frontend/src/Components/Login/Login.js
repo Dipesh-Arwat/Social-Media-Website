@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from '../../axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
@@ -87,7 +87,7 @@ const Login = ({ setIsAuthenticated }) => {
                 <button type="submit">Login</button>
             </form>
             <div className='redirect'>
-                <p className="text">Don't have an account?<a href="/register"> Sign up</a></p>
+                <p className="text">Don't have an account?<Link to="/register">Sign Up</Link></p>
             </div>
         </div>
     );
