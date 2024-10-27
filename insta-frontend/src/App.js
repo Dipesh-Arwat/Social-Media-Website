@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import {  Routes, Route, Navigate } from 'react-router-dom';
 import './App.css'; // Ensure the spinner styles are in this file
 import Sidebar from './Components/Sidebar/Sidebar';
 import axios from './axios';
@@ -61,7 +61,7 @@ function App() {
   }
 
   return (
-    <Router>
+    
       <div className="app">
         {isAuthenticated && <Sidebar setIsAuthenticated={setIsAuthenticated} />}
         <div className="content">
@@ -92,7 +92,7 @@ function App() {
           </Suspense>
         </div>
       </div>
-    </Router>
+  
   );
 }
 
