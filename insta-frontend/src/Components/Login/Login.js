@@ -29,14 +29,10 @@ const Login = ({ setIsAuthenticated }) => {
             const token = response.data.token;
             const userProfileImage = response.data.profileImage;
 
-            // Save the token and profile image in localStorage
             localStorage.setItem('token', token);
             localStorage.setItem('profileImage', userProfileImage);
 
-            // Set the authentication state to true
             setIsAuthenticated(true);
-
-            // Redirect to the feed page
             navigate('/feed');
             // window.location.reload();
         } catch (error) {
@@ -87,7 +83,7 @@ const Login = ({ setIsAuthenticated }) => {
                 <button type="submit">Login</button>
             </form>
             <div className='redirect'>
-                <p className="text">Don't have an account?<Link to="/register">Sign Up</Link></p>
+                <p className="text">Don't have an account?<Link to="/register"> Sign Up</Link></p>
             </div>
         </div>
     );

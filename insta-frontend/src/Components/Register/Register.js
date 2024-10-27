@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from '../../axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png'
 import './Register.css'
 
@@ -50,7 +50,7 @@ const Register = () => {
       </form>
       <div className='redirect'>
 
-      <p className="text">Already have an account?<a href="/login"> Login</a></p>
+      <p className="text">Already have an account?<Link to="/login"> Login</Link></p>
       </div>
     </div>
   );
