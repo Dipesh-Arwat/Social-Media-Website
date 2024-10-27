@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import axios from '../../axios';
 import { useNavigate } from 'react-router-dom';
-import './Login.css'
-import logo from '../assets/logo.png'
-
+import './Login.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import logo from '../assets/logo.png';
 const Login = ({ setIsAuthenticated }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false); // Manage password visibility
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
 
@@ -22,7 +24,6 @@ const Login = ({ setIsAuthenticated }) => {
             return;
         }
         
-
         try {
             const response = await axios.post('/login', { email, password });
             const token = response.data.token;
@@ -37,6 +38,7 @@ const Login = ({ setIsAuthenticated }) => {
 
             // Redirect to the feed page
             navigate('/feed');
+            // window.location.reload();
         } catch (error) {
             console.error('Login failed:', error);
             setErrorMessage('Incorrect email or password. Please try again.');
@@ -45,7 +47,10 @@ const Login = ({ setIsAuthenticated }) => {
 
     return (
         <div className="auth-container ">
-            <img className="logo" src={logo} alt="Instagram" />
+         
+                <img className="logo" src={logo} alt="Instagram" loading="lazy" />
+   
+
             <h2>Login</h2>
             <form onSubmit={handleLogin}>
                 <input
@@ -54,14 +59,30 @@ const Login = ({ setIsAuthenticated }) => {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email"
                     required
+                    className='login-input'
                 />
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Password"
-                    required
-                />
+                
+                <div className="password-container">
+                    <input
+                        type={showPassword ? "text" : "password"}  // Toggle input type based on showPassword state
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Password"
+                        required
+                        className='pass-input'
+                    />
+                    <div
+                        className="password-toggle"
+                        onClick={() => setShowPassword(!showPassword)}  // Toggle visibility
+                    >
+                        {showPassword ? (
+                            <FontAwesomeIcon icon={faEye} /> // Hide icon
+                        ) : (
+                            <FontAwesomeIcon icon={faEyeSlash} /> // Show icon
+                        )}
+                    </div>
+                </div>
+
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
                 <button type="submit">Login</button>
             </form>
@@ -73,3 +94,5 @@ const Login = ({ setIsAuthenticated }) => {
 };
 
 export default Login;
+
+
