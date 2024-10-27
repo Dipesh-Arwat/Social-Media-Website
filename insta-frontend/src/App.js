@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css'; // Ensure the spinner styles are in this file
 import Sidebar from './Components/Sidebar/Sidebar';
 import axios from './axios';
