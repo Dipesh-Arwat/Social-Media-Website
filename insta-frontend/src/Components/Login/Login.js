@@ -37,7 +37,7 @@ const Login = ({ setIsAuthenticated }) => {
             setIsAuthenticated(true);
 
             // Redirect to the feed page
-            navigate('https://social-media-website-ciuy.onrender.com/feed');
+            navigate('/feed');
             window.location.reload();
         } catch (error) {
             console.error('Login failed:', error);
@@ -87,7 +87,7 @@ const Login = ({ setIsAuthenticated }) => {
                 <button type="submit">Login</button>
             </form>
             <div className='redirect'>
-                <p className="text">Don't have an account?<a href="https://social-media-website-ciuy.onrender.com/register"> Sign up</a></p>
+                <p className="text">Don't have an account?<a href="/register"> Sign up</a></p>
             </div>
         </div>
     );
