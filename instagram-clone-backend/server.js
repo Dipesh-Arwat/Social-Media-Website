@@ -21,14 +21,14 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: 'https://social-media-website-backend-0xnf.onrender.com/api',
+  origin: 'https://social-media-website-ciuy.onrender.com',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.options('*', cors({
-  origin: 'https://social-media-website-backend-0xnf.onrender.com/api',
+  origin: 'https://social-media-website-ciuy.onrender.com',
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
