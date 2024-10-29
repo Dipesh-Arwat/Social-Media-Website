@@ -7,8 +7,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const EditProfile = ({ user }) => {
-  const [username, setUsername] = useState(user.username);
-  const [bio, setBio] = useState(user.bio);
+  const [username, setUsername] = useState(user?.username || '');
+  const [bio, setBio] = useState(user?.bio || '');
   const [profileImage, setProfileImage] = useState(null);
   const [croppedImage, setCroppedImage] = useState(null);
 
@@ -33,11 +33,10 @@ const EditProfile = ({ user }) => {
       const croppedImage = await getCroppedImg(profileImage, croppedAreaPixels);
       setCroppedImage(croppedImage);
     } catch (error) {
-      console.error(error);
+      console.error("Error cropping image:", error);
     }
   }, [profileImage, croppedAreaPixels]);
 
-  // Automatically trigger cropping when the user changes the image
   useEffect(() => {
     if (profileImage && croppedAreaPixels) {
       handleCropImage();
@@ -46,6 +45,11 @@ const EditProfile = ({ user }) => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
+
+    if (!username.trim() || !bio.trim()) {
+      toast.error('Username and Bio are required.');
+      return;
+    }
 
     const formData = new FormData();
     formData.append('username', username);
@@ -58,19 +62,21 @@ const EditProfile = ({ user }) => {
 
     const token = localStorage.getItem('token');
     try {
-      await axios.put('/user/edit', formData, {
+      const response = await axios.put('/user/edit', formData, {
         headers: { 
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`
         },
       });
-      toast.success('Profile updated successfully!');
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
+      if (response.status === 200) {
+        toast.success('Profile updated successfully!');
+        setTimeout(() => window.location.reload(), 2000);
+      } else {
+        toast.error('Unexpected response from server.');
+      }
     } catch (error) {
-      console.error(error);
-      toast.error('Error updating profile');
+      console.error("Error updating profile:", error);
+      toast.error(error.response?.data?.error || 'Error updating profile');
     }
   };
 
@@ -117,7 +123,7 @@ const EditProfile = ({ user }) => {
         <button type="submit">Update Profile</button>
       </form>
 
-      <ToastContainer className="toast-container"/>
+      <ToastContainer className="toast-container" />
     </div>
   );
 };
