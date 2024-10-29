@@ -22,7 +22,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({
   origin: 'https://social-media-website-ciuy.onrender.com',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  methods: 'GET,PUT,POST,DELETE',
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
