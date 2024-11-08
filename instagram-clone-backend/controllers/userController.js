@@ -62,29 +62,35 @@ exports.searchUsers = async (req, res) => {
 };
 
 
+const imageBaseUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'https://social-media-website-backend-0xnf.onrender.com/api/uploads'
+    : 'http://localhost:5000/api/uploads';
+
+
 // Update user profile
 exports.updateUserProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
-    if (!user) return res.status(404).json({ message: 'User not found' });
+    if (user) {
+      user.username = req.body.username || user.username;
+      user.bio = req.body.bio || user.bio;
+      
+      if (req.file) {
+        console.log('File uploaded:', req.file); // Log the file upload
+        user.profileImage = `${imageBaseUrl}/${req.file.filename}`; // Save image path to user profile
+      }
 
-    user.username = req.body.username || user.username;
-    user.bio = req.body.bio || user.bio;
-
-    // Log the file upload data for debugging
-    if (req.file) {
-      console.log('File uploaded:', req.file);
-      user.profileImage = `https://social-media-website-backend-0xnf.onrender.com/api/uploads/${req.file.filename}`;
+      const updatedUser = await user.save();
+      res.json(updatedUser);
+    } else {
+      res.status(404).json({ message: 'User not found' });
     }
-
-    const updatedUser = await user.save();
-    res.json(updatedUser);
   } catch (error) {
-    console.error('Error updating user profile:', error.message); 
+    console.error('Error updating user profile:', error.message); // Log the actual error
     res.status(500).json({ message: error.message });
   }
 };
-
 
 exports.getFollowers = async (req, res) => {
   const { userId } = req.params;

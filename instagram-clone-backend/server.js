@@ -45,7 +45,7 @@ app.use('/api', authRoutes);
 app.use('/api', userRoutes);
 app.use('/api', postRoutes,);
 app.use('/api', storyRoutes,);
-app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/api/uploads', express.static('uploads'));
 
 // Serve static files from the React frontend app
 

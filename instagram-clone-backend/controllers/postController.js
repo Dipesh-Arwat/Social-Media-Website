@@ -3,6 +3,11 @@ const User = require('../models/User');
 
 
 
+const imageBaseUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'https://social-media-website-backend-0xnf.onrender.com/api/uploads'
+    : 'http://localhost:5000/api/uploads';
+
 
 exports.createPost = async (req, res) => {
   const { caption } = req.body; // Destructure caption from the request body
@@ -10,7 +15,7 @@ exports.createPost = async (req, res) => {
     // Create new post with image URL and user ID
     const post = new Post({
       user: req.user._id, // Set the user ID from the request
-      imageUrl: `https://social-media-website-backend-0xnf.onrender.com/api/uploads/${req.file.filename}`, // Construct the image URL
+      imageUrl: `${imageBaseUrl}/${req.file.filename}`, // Construct the image URL
       caption, // Set the caption
     });
 

@@ -1,6 +1,13 @@
 const Story = require('../models/Story');
 const User = require('../models/User');
 
+
+const imageBaseUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'https://social-media-website-backend-0xnf.onrender.com/api/uploads'
+    : 'http://localhost:5000/api/uploads';
+
+
 // Add a new story
 exports.addStory = async (req, res) => {
   console.log('Request body:', req.body);
@@ -16,7 +23,7 @@ exports.addStory = async (req, res) => {
 
     const story = new Story({
       user: req.user._id,
-      mediaUrl: `https://social-media-website-backend-0xnf.onrender.com/api/uploads/${req.file.filename}`,
+      mediaUrl: `${imageBaseUrl}/${req.file.filename}`,
       type,
       expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000),
     });
