@@ -34,6 +34,7 @@ function App() {
           });
 
           localStorage.setItem('profileImage', res.data.profileImage || '');
+          localStorage.setItem('userId', res.data._id);
           setCurrentUser(res.data);
         } catch (error) {
           console.error('Error fetching current user:', error);
