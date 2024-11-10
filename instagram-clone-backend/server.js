@@ -52,7 +52,7 @@ app.use(express.static(path.join(__dirname, 'insta-frontend/build')));
 
 // Fallback route: send all other requests to React frontend
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'insta-frontend/build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'insta-frontend','build', 'index.html'));
 });
 
 app.get('/api', (req, res) => {
