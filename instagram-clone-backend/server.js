@@ -45,14 +45,14 @@ app.use('/api', authRoutes);
 app.use('/api', userRoutes);
 app.use('/api', postRoutes,);
 app.use('/api', storyRoutes,);
-app.use('/api/uploads', express.static('uploads'));
+app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Serve static files from the React frontend app
+
+// Serve the React frontend
 app.use(express.static(path.join(__dirname, 'insta-frontend/build')));
 
-// Fallback route: send all other requests to React frontend
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'insta-frontend','build', 'index.html'));
+   res.sendFile(path.join(__dirname, 'insta-frontend/build', 'index.html'));
 });
 
 app.get('/api', (req, res) => {
