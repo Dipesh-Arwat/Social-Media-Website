@@ -64,7 +64,7 @@ exports.searchUsers = async (req, res) => {
 
 const imageBaseUrl =
   process.env.NODE_ENV === 'production'
-    ? 'https://social-media-website-backend-0xnf.onrender.com/api/uploads'
+    ? 'https://social-media-website-backend-hv10.onrender.com/api/uploads'
     : 'http://localhost:5000/api/uploads';
 
 
