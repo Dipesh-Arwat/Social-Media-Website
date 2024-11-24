@@ -5,7 +5,7 @@
 
 This project is a fully functional Instagram clone built using the **MERN stack** (MongoDB, Express, React, Node.js). The app allows users to create an account, post pictures, like and comment on posts, follow/unfollow other users, and upload stories with a 24-hour expiration period, among other features.
 
-You can view the live demo [here](https://social-media-website-ciuy.onrender.com).
+You can view the live demo [here](https://social-media-website-aryy.onrender.com).
 
 ## Features
 
@@ -64,7 +64,7 @@ To run this project locally, follow the steps below:
 
 ## Deployment
 
-The app is deployed on [Render.com](https://social-media-website-ciuy.onrender.com).
+The app is deployed on [Render.com](https://social-media-website-aryy.onrender.com).
 
 ## Issues
 
